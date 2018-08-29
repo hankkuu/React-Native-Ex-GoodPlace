@@ -30,16 +30,16 @@ class LoginScreen extends Component {
             // 값을 제대로 받아와야 토큰에 넣어 준다 
             // await를 사용하면 async를 같이 패턴적으로 쓴다
             const token = await AsyncStorage.getItem("@Session:token");
-            console.log("Token: " + token);
+            //console.log("Token: " + token);
 
             // 자동로그인 한다...
-            if(token !== null) {
-                this.props.navigation.dispatch({
-                    type: 'Navigation/RESET',
-                    index: 0,
-                    actions: [{ routeName: 'List'}]
-                })
-            }
+            // if(token !== null) {
+            //     this.props.navigation.dispatch({
+            //         type: 'Navigation/RESET',
+            //         index: 0,
+            //         actions: [{ routeName: 'List'}]
+            //     })
+            // }
            
         } catch(error) {
 
@@ -58,6 +58,9 @@ class LoginScreen extends Component {
                            source={require('../../../assets/background.png')}
                     >                           
                     </Image>
+                </View>
+                <View style={{ flex: 1, backgroundColor: 'transparent'}}>
+                    <Text style={{ textAlign: 'center', fontSize: 40, marginTop: 100, color: '#fff3f1'}}>맛집</Text>
                 </View>
                 <View style={{ flex: 1, backgroundColor: 'transparent', padding: 20, justifyContent: 'center'}}>
                     <View style={styles.formBorderStyle}>
@@ -89,7 +92,7 @@ class LoginScreen extends Component {
     }
 
     onLogin() {
-        console.log("onLogin");
+        //console.log("onLogin");
         var ret = { success: true, token: 'success' }
         this.onLoginResult(ret);
 
@@ -112,7 +115,7 @@ class LoginScreen extends Component {
     }
 
     onFacebook() {
-        console.log("onFacebook");
+        //console.log("onFacebook");
         const self = this;
         // 아래에 필요한 내용을 넣는다 expo 문서 참조 또는 (native 방식)
         var ret = { success: true, token: 'success' }
@@ -120,7 +123,7 @@ class LoginScreen extends Component {
     }
 
     onLoginResult(result) {
-        console.log(result);
+        //console.log(result);
         if(!result.success) {
             alert('로그인정보를 확인해라');
             return;

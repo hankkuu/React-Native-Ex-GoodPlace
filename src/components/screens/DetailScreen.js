@@ -18,13 +18,13 @@ class DetailScreen extends Component {
         super(props);
 
         this.state = {
-            info: '',
+            info: null,
             token: '',
             imageUri: require('../../../assets/mask.png'),
         }
         let data = props.navigation.state.params;
         if (data !== undefined) {
-            console.log(data);
+            //console.log(data);
             this.state = {
                 info: data.info,
                 token: data.token,

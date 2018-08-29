@@ -46,7 +46,7 @@ class ListScreen extends Component {
             // 값을 제대로 받아와야 토큰에 넣어 준다 
             // await를 사용하면 async를 같이 패턴적으로 쓴다
             const token = await AsyncStorage.getItem("@Session:token");
-            console.log("Token: " + token);
+            //console.log("Token: " + token);
             this.setState({token: token})
         } catch(error) {
 
@@ -72,7 +72,7 @@ class ListScreen extends Component {
                     },
                     error: null
                 })
-                console.log(position);
+                //console.log(position);
                 // 여기서 강제로 일단 만들자
                 this.fetchData();
             },
@@ -91,6 +91,7 @@ class ListScreen extends Component {
             lat: this.state.region.latitude,
             lng: this.state.region.longitude
         };
+        //console.log(data);
         // 토큰을 get 방식으로 보낼 때 인코드 함수로 감싸서 보낸다
         const url = GLOBAL.HOST + 'mobile/list?lat=' + data.lat + '&lng' + data.lng + '&token' + encodeURIComponent(this.state.token);
         let dummyData = [
@@ -107,8 +108,8 @@ class ListScreen extends Component {
                 }));
             })
             .catch((error) => {
-                console.log("여기들어온거 맞음?");
-                console.log(error);
+                //console.log("여기들어온거 맞음?");
+                //console.log(error);
                 this.setState(state => ({                   
                     spots: [...dummyData]
                 }));
@@ -136,7 +137,7 @@ class ListScreen extends Component {
     renderEntries({ item, index }) {
         //if (item.image != null && item.image.length > 0) {
         if (item.imageUri != null ) {
-            console.log("아이템 발견");
+            //console.log("아이템 발견");
             //const imageUri = GLOBAL.HOST + item.image[0].uri;
             // 다른 방식으로 더미를 넘겨야 한다 
 
@@ -158,7 +159,7 @@ class ListScreen extends Component {
             )
         }
 
-        console.log("아이템없다");
+        //console.log("아이템없다");
         return (
             <TouchableOpacity style={styles.itemStyle} >
                 <Text style={styles.itemTextStyle}>
